@@ -3,10 +3,11 @@ const stop = document.getElementById('btn-stop');
 const minus = document.getElementById('btn-minus');
 const plus = document.getElementById('btn-plus');
 const field = document.getElementById('field');
+const count = document.getElementById('count');
 
 const getRandom = (min, max) => Math.floor(Math.random() * (max - min) ) + min;
 
-const figures = [];
+let figures = [];
 const figuresStyle = ['figure-circle', 'figure-square', 'figure-triangle', 'figure-star'];
 const figureColors = ['figure-red', 'figure-green', 'figure-blue', 'figure-yellow'];
 const figureSize = ['figure-small', 'figure-normal', 'figure-big'];
@@ -15,6 +16,7 @@ const printFigure = () => {
   const currentFigures = field.querySelectorAll('.figure');
   currentFigures.forEach( elem => elem.remove());
   figures.forEach( elem => field.appendChild(elem));
+  count.innerText = figures.length;
 }
 
 const createFigure = () => {
@@ -39,6 +41,8 @@ const startPlay = () => {
 }
 
 const stopPlay = () => {
+  figures = [];
+  printFigure();
   plus.setAttribute('disabled', true);
   minus.setAttribute('disabled', true);
   plus.removeEventListener('click', createFigure);
