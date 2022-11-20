@@ -16,7 +16,7 @@ const printFigure = () => {
   const currentFigures = field.querySelectorAll('.figure');
   currentFigures.forEach( elem => elem.remove());
   figures.forEach( elem => field.appendChild(elem));
-  count.innerText = figures.length;
+  count.querySelector('span').innerText = figures.length;
 }
 
 const createFigure = () => {
@@ -36,6 +36,7 @@ const removeFigure = () => {
 const startPlay = () => {
   plus.removeAttribute('disabled');
   minus.removeAttribute('disabled');
+  count.classList.remove('disabled')
   plus.addEventListener('click', createFigure);
   minus.addEventListener('click', removeFigure);
 }
@@ -45,6 +46,7 @@ const stopPlay = () => {
   printFigure();
   plus.setAttribute('disabled', true);
   minus.setAttribute('disabled', true);
+  count.classList.add('disabled');
   plus.removeEventListener('click', createFigure);
   minus.removeEventListener('click', removeFigure);
 }
