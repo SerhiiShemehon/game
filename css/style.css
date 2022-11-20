@@ -146,11 +146,6 @@ html, body {
     width: 75px;
     height: 75px;
     position: absolute;
-    opacity: 0;
-    transition: 0.5s;
-}
-.figure.show {
-    opacity: 1;
 }
 .figure.figure-small {
     width: 50px;
